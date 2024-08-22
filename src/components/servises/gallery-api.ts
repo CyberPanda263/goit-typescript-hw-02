@@ -18,7 +18,7 @@ interface UnsplashResponse {
 }
 
 export interface FetchGalleryResponse {
-  items: GalleryItem[];
+  items: [];
   totalItems: number;
   page: number;
   totalPages: number;
