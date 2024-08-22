@@ -1,0 +1,12 @@
+
+body {
+    margin: 0;
+}
+
+._modal_2v5pm_1 {
+    background-color: transparent;
+}
+
+.ReactModal__Overlay, .ReactModal__Overlay--after-open {
+    background-color: rgb(6 6 6 / 75%);
+}

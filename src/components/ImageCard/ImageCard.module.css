@@ -1,0 +1,7 @@
+.imageCardItem {
+    width: 300px;
+    height: 200px;
+    cursor: pointer;
+    object-fit: cover;
+}
+

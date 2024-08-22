@@ -1,0 +1,28 @@
+header {
+  background-color: #1864e7;
+  padding: 10px 0;
+}
+
+.form {
+    width: 218px;
+    margin: 0 auto;
+    background-color: white;
+    border: solid 1px black;
+  }
+  
+  .input {
+    width: 180px;
+    height: 30px;
+    border: none;
+  }
+
+  .searchBtn {
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+.input:focus {
+  outline: none;
+  border: none;;
+}
