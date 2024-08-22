@@ -17,14 +17,6 @@ interface UnsplashResponse {
   results: UnsplashImage[];
 }
 
-export interface FetchGalleryResponse {
-  items: [];
-  totalItems: number;
-  page: number;
-  totalPages: number;
-  pageSize: number;
-}
-
 const fetchGallery = async (
   query: string,
   page: number = 1,
