@@ -30,7 +30,7 @@
   border: 1px solid #ddd;
   border-left: none;
   border-radius: 0 5px 5px 0;
-  background-color: #0d5497;
+  background-color: #4fa94d;
   color: white;
   cursor: pointer;
   outline: none;
@@ -38,5 +38,5 @@
 }
 
 .btn:hover {
-  background-color: #457ba0;
+  background-color: #45a047;
 }

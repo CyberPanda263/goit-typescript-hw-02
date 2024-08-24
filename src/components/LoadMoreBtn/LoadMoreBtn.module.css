@@ -5,7 +5,7 @@
   font-size: 16px;
   border: none;
   border-radius: 5px;
-  background-color: #0d5497;
+  background-color: #4fa94d;
   color: white;
   cursor: pointer;
   outline: none;
@@ -13,5 +13,5 @@
 }
 
 .loadMoreBtn:hover {
-  background-color: #457ba0;
+  background-color: #45a047;
 }

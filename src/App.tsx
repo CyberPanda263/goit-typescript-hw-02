@@ -18,7 +18,6 @@ function App() {
   const [page, setPage] = useState<number>(1);
   const [selectedImage, setSelectedImage] = useState<Image | null>(null);
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
-  
 
   const handleSearch = async (name: string) => {
     setQuery(name);
