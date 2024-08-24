@@ -18,6 +18,7 @@ function App() {
   const [page, setPage] = useState<number>(1);
   const [selectedImage, setSelectedImage] = useState<Image | null>(null);
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+  
 
   const handleSearch = async (name: string) => {
     setQuery(name);
@@ -28,6 +29,7 @@ function App() {
       setLoading(true);
       const data: SearchResult = await fetchImagesWithName(name, 1);
       setImages(data.results);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       setError(true);
     } finally {
@@ -41,6 +43,7 @@ function App() {
       const data = await fetchImagesWithName(query, page + 1);
       setImages((prevImages) => [...prevImages, ...data.results]);
       setPage((prevPage) => prevPage + 1);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       setError(true);
     } finally {
