@@ -39,4 +39,10 @@ const fetchGallery = async (
   return response.data;
 };
 
+export interface FetchGalleryResponse {
+  total: number;
+  total_pages: number;
+  results: UnsplashImage[];
+}
+
 export default fetchGallery;

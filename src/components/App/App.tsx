@@ -3,7 +3,7 @@ import { Toaster } from "react-hot-toast";
 
 import SearchBar from "../SearchBar/SearchBar";
 import ImageGallery from "../ImageGallery/ImageGalery";
-import fetchGallery from "../servises/gallery-api";
+import fetchGallery, { FetchGalleryResponse } from "../servises/gallery-api";
 import Loader from "../Loader/Loader";
 import LoadMoreBtn from "../LoadMoreBtn/LoaderMoreBtn";
 import ImageModal from "../ImageModal/ImageModal";
@@ -43,7 +43,7 @@ const App = () => {
       try {
         setIsLoading(true);
         setIsError(false);
-        const response = await fetchGallery(query, page, 12);
+        const response: FetchGalleryResponse = await fetchGallery(query, page, 12);
         setResults((prev) => [...prev, ...response.results]);
         setTotal(response.total_pages);
       } catch (error) {
@@ -52,6 +52,10 @@ const App = () => {
         setIsLoading(false);
       }
     };
+
+    FetchGalleryResponse.total_pages: number
+
+    
 
     getPhotos();
   }, [query, page]);
