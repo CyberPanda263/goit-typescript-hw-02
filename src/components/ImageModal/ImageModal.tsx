@@ -1,33 +1,43 @@
 import React from "react";
 import Modal from "react-modal";
 import css from "./ImageModal.module.css";
+import { Props } from "react-loader-spinner";
+import { Image } from "../../Types/types";
 
 Modal.setAppElement("#root");
 
-interface ImageModalProps {
+type ModalProps = {
   isOpen: boolean;
-  onRequestClose: () => void;
-  imageUrl: string;
-}
+  onClose: () => void;
+  image: Image;
+};
 
-const ImageModal: React.FC<ImageModalProps> = ({ isOpen, onRequestClose, imageUrl }) => {
-  return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={onRequestClose}
-      shouldCloseOnOverlayClick={true}
-      shouldCloseOnEsc={true}
-      className={css.modal}
-    >
+const ImageModal = ({ isOpen, onClose, image }: ModalProps) => (
+  <Modal
+    isOpen={isOpen}
+    onRequestClose={onClose}
+    className={css.modal}
+    overlayClassName={css.overlay}
+    closeTimeoutMS={300} // optional, adds fade-out transition
+  >
+    {image && (
       <div>
         <img
-          src={imageUrl}
-          alt="Modal content"
-          style={{ maxWidth: "1200px", maxHeight: "800px", objectFit: "contain" }}
+          src={image.urls.regular}
+          alt={image.alt_description}
+          className={css.image}
         />
+        <div className={css.info}>
+          <p>Author: {image.user.name}</p>
+          <p>{image.likes} likes</p>
+          {image.description && <p>Description: {image.description}</p>}
+        </div>
+        <button onClick={onClose} className={css.closeBtn}>
+          Close
+        </button>
       </div>
-    </Modal>
-  );
-};
+    )}
+  </Modal>
+);
 
 export default ImageModal;

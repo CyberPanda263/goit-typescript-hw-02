@@ -1,28 +1,25 @@
-import React from 'react';
-import css from './ImageCard.module.css';
+import React from "react";
+import css from "./ImageCard.module.css";
+import { Image } from "../../Types/types";
 
-interface ImageCardProps {
-  item: {
-    urls: {
-      small: string;
-      regular: string;
-    };
-    slug: string;
-  };
-  onClick: (url: string) => void;
-}
-
-const ImageCard: React.FC<ImageCardProps> = ({ item, onClick }) => {
-  return (
-    <div className={css.imageCard}>
-      <img
-        className={css.imageCardItem}
-        src={item.urls.small}
-        alt={item.slug}
-        onClick={() => onClick(item.urls.regular)}
-      />
-    </div>
-  );
+type Props = {
+  image: Image;
+  onClick: (image: Image) => void;
 };
+
+const ImageCard = ({ image, onClick }: Props) => (
+  <div className={css.card}>
+    <img
+      src={image.urls.small}
+      alt={image.alt_description}
+      className={css.image}
+      onClick={() => onClick(image)}
+    />
+    <div className={css.info}>
+      <p>{image.user.name}</p>
+      <p>{image.likes} likes</p>
+    </div>
+  </div>
+);
 
 export default ImageCard;

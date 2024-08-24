@@ -1,53 +1,39 @@
-import React from "react";
-import { Field, Formik, Form, FormikHelpers } from "formik";
 import toast from "react-hot-toast";
 import css from "./SearchBar.module.css";
-import { FaSearch } from "react-icons/fa";
 
-interface SearchBarProps {
-  onSubmit: (query: string) => void;
-}
+type Props = {
+  onSubmit: (image: string) => void;
+};
 
-interface FormValues {
-  query: string;
-}
+const SearchBar = ({ onSubmit }: Props) => {
+  const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
+    evt.preventDefault();
+    const form = evt.currentTarget;
+    const image = form.elements.namedItem("image") as HTMLInputElement;
 
-const SearchBar: React.FC<SearchBarProps> = ({ onSubmit }) => {
-  const initialValues: FormValues = {
-    query: "",
-  };
-
-  const handleSubmit = (
-    values: FormValues,
-    actions: FormikHelpers<FormValues>
-  ) => {
-    if (!values.query.trim()) {
-      toast.error("Please, enter a text to search for images.");
+    if (image.value.trim() === "") {
+      toast.error("Please enter search term!");
       return;
     }
-    onSubmit(values.query);
-    actions.resetForm();
+    onSubmit(image.value);
+    form.reset();
   };
 
   return (
-    <header>
-      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-        <Form className={css.form}>
-          <button className={css.searchBtn} type="submit">
-            <span>
-              <FaSearch />
-            </span>
-          </button>
-          <Field
-            className={css.input}
-            type="text"
-            name="query"
-            autoComplete="off"
-            autoFocus
-            placeholder="Search images and photos"
-          />
-        </Form>
-      </Formik>
+    <header className={css.header}>
+      <form className={css.form} onSubmit={handleSubmit}>
+        <input
+          name="image"
+          className={css.input}
+          type="text"
+          autoComplete="off"
+          autoFocus
+          placeholder="Search images and photos"
+        />
+        <button type="submit" className={css.btn}>
+          Search
+        </button>
+      </form>
     </header>
   );
 };
