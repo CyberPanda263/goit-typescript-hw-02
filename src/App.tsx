@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import "./App.css";
 import { useState } from "react";
 import SearchBar from "./components/SearchBar/SearchBar";
@@ -29,7 +30,6 @@ function App() {
       setLoading(true);
       const data: SearchResult = await fetchImagesWithName(name, 1);
       setImages(data.results);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       setError(true);
     } finally {
@@ -43,7 +43,6 @@ function App() {
       const data = await fetchImagesWithName(query, page + 1);
       setImages((prevImages) => [...prevImages, ...data.results]);
       setPage((prevPage) => prevPage + 1);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       setError(true);
     } finally {
