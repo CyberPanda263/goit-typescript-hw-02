@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import "./App.css";
 import { useState } from "react";
 import SearchBar from "./components/SearchBar/SearchBar";
